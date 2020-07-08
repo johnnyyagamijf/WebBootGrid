@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebBootGrid.Models.Produtos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table id="grid-data" class="table table-striped">
+    <thead>
+        <tr>
+            <th data-column-id="id" data-type="numeric">ID</th>
+            @Html.DisplayNameFor(model => model.ID)
+            <th data-column-id="Sender">
+                @Html.DisplayNameFor(model => model.Sender)
+            </th>
+            <th data-column-id="Received">
+                @Html.DisplayNameFor(model => model.Received)
+            </th>
+            <th data-column-id="Link">
+                @Html.DisplayNameFor(model => model.Link)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Received)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts
+    {
+    <script src="~/Scripts/jquery.bootgrid.js"></script>
+    <script type="text/javascript">
+        $("#grid-data").bootgrid();
+
+            //$("#grid-data").bootgrid({
+            //    //ajax: true,
+            //    //post: function ()
+            //    //{
+            //    //    /* To accumulate custom parameter with the request object */
+            //    //    return {
+            //    //        id: "b0df282a-0d67-40e5-8558-c9e93b7befed"
+            //    //    };
+            //    //},
+            //    //url: "/api/data/basic",
+            //    //formatters: {
+            //    //    "link": function(column, row)
+            //    //    {
+            //    //        return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";
+            //    //    }
+            //    //}
+            //});
+
+
+    </script>
+}
